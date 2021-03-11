@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export PYTHONPATH="$BUILD_DIR/project"
+python manage.py compilemessages -l es
