@@ -2,3 +2,6 @@
 
 export PYTHONPATH="$BUILD_DIR/project"
 python manage.py compilemessages -l es
+# NOTE: running collectstatic from post_compile hook b/c it requires PYTHONPATH
+# pointing to the actual source code path.
+python manage.py collectstatic --noinput
