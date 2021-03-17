@@ -65,9 +65,11 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
     # third-party apps
+    'rest_framework',
 
     # project apps
     'app.shared',
+    'app.elections',
 ]
 
 MIDDLEWARE = [
@@ -262,3 +264,11 @@ DROPBOX_WRITE_MODE = env("DROPBOX_WRITE_MODE", default="add")
 # =====================================
 
 FILEBROWSER_DEFAULT_PERMISSIONS = env("FILEBROWSER_DEFAULT_PERMISSIONS", default=None)
+
+# Django Rest Framework
+# =====================================
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 50,
+}
