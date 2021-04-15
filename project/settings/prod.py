@@ -6,10 +6,10 @@ from .base import *
 
 # Insert Whitenoise Middleware.
 try:
-    pos = MIDDLEWARE.index('django.middleware.security.SecurityMiddleware') + 1
+    pos = MIDDLEWARE.index("django.middleware.security.SecurityMiddleware") + 1
 except ValueError:
     pos = 0
-MIDDLEWARE.insert(pos, 'whitenoise.middleware.WhiteNoiseMiddleware')
+MIDDLEWARE.insert(pos, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 # Enable GZip.
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
