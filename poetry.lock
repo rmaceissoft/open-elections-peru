@@ -306,10 +306,9 @@ version = "0.1.0"
 requests = "*"
 
 [package.source]
-reference = "51d9d81647ef7ca5da41d6f18c3f813b1500874b"
+reference = "d71cbe8a5b8421f71cca854cac80b8bbf2485b39"
 type = "git"
 url = "https://github.com/rmaceissoft/python-jne-peru"
-
 [[package]]
 category = "main"
 description = "World timezone definitions, modern and historical"
