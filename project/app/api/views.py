@@ -1,5 +1,5 @@
 from django_filters import rest_framework as filters
-from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.utils import extend_schema, OpenApiExample, OpenApiParameter
 from drf_spectacular.types import OpenApiTypes
 from rest_framework import viewsets
 from rest_framework.decorators import action
@@ -90,6 +90,55 @@ class CandidateFilter(filters.FilterSet):
             description="Filter by political organization",
             required=False,
             type=OpenApiTypes.NUMBER,
+        ),
+        OpenApiParameter(
+            name="o",
+            description="Order candidates by a given criteria",
+            required=False,
+            type=OpenApiTypes.STR,
+            enum=["-ts", "ts", "-tps", "tps", "-tos", "tos", "-ti", "ti"],
+            examples=[
+                OpenApiExample(
+                    "Order by total sentences (Descending)",
+                    value="-ts",
+                    description="Candidates with more sentences (both penal and obligation sentences) will appear at top",
+                ),
+                OpenApiExample(
+                    "Order by total sentences (Ascending)",
+                    value="ts",
+                    description="Candidates with less sentences (both penal and obligation sentences) will appear at top",
+                ),
+                OpenApiExample(
+                    "Order by total penal sentences (Descending)",
+                    value="-tps",
+                    description="Candidates with more penal sentences will appear at top",
+                ),
+                OpenApiExample(
+                    "Order by total penal sentences (Ascending)",
+                    value="tps",
+                    description="Candidates with less penal sentences will appear at top",
+                ),
+                OpenApiExample(
+                    "Order by total obligation sentences (Descending)",
+                    value="-tos",
+                    description="Candidates with more obligation sentences will appear at top",
+                ),
+                OpenApiExample(
+                    "Order by total obligation sentences (Ascending)",
+                    value="tos",
+                    description="Candidates with less obligation sentences will appear at top",
+                ),
+                OpenApiExample(
+                    "Order by total incomes (Descending)",
+                    value="-ti",
+                    description="Candidates with less incomes will appear at top",
+                ),
+                OpenApiExample(
+                    "Order by total incomes (Ascending)",
+                    value="ti",
+                    description="Candidates with more incomes will appear at top",
+                ),
+            ],
         ),
     ]
 )
